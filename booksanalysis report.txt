@@ -1,0 +1,58 @@
+REPORT
+Executive Summary
+Read the data into a list data structure
+extract features
+cleaned the content by removing punctuation, lowercasing words, digits and word containing digits
+visualization with heatmap and bar chart plots 
+results:
+2003 was the year the most books were published
+Roger McGuinn who wrote 12 books wrote the highest amount of books
+The various authors are the ones with the most vast vocabulary.
+Suggestions:
+The data files should be structured in the exact same format to avoid missing data during feature extraction
+
+
+Data Cleaning
+I started by reading the data into memory. I looped over the text files and stored the files contents as an element in a list data structure, then chose the parts of the book I needed which by using RegEx to search all words between keyword ‘START’ and keyword ‘END”.
+I used 50 text files ranging from 10463.txt to 10523.txt.
+I chose 6 features which are: Title, number of chapters, author, publication year, content and word count (number of unique words).
+I encountered missing values for number of chapters feature.
+The title feature is an object type, number of chapters is an integer type feature, author is an object type feature , publication year is an integer type feature, content is an object type feature and the word count is an integer type feature.
+I extracted all the features by using RegEx to search the text for specific patterns. I had some struggle extracting the publication year but I solved it by changing the format of the date which was originally “day month, year [ebook]” which I transformed to “day month(year)ebook]”  by using the replace method.
+I dealt with missing data in the number of chapters’ column by setting the value of missing ones to 0.
+I structured the extracted features into a data frame.
+I dealt with mismatched data by removing punctuation, digits, words containing digits by using a lambda function and RegEx. I also dealt with capitalization by lower casing all words.
+I stored the cleaned book contents into a column called ‘cleaned ’ using the cleaned I calculated the number of unique words used by using RegEx to find new words.
+I then created a column in the data frame for word count
+
+
+Exploratory Data Analysis
+I created a heatmap plot to visualize the correlation between the integer data types and saw that the number of chapters and word count have a slight correlation.
+I then proceeded to visualize distribution of features like publication year, author using a bar chart with matplotlib
+Which prompted the questions 1: what year were books most published?
+Question2: what author wrote the most books?
+I also visualized the relationship between word count and author using a bar chart with matplotlib
+Which prompted Question 3: what author has the most diverse vocabulary?
+
+
+Descriptive Analytics
+Question 1: what year were books most published?
+From the bar chart 49 books were published in 2003 and just one was published in 2008, 2003 was the year most books were published.
+Question2: what author wrote the most books?
+From the bar chart of the top 10 authors Roger McGuinn who wrote 12 books wrote the most books.
+Question 3: what author has the most diverse vocabulary?
+From the bar chart, the various authors has the most lexical diversity with over 100000 words
+Suggestions
+The chapters should be labelled more appropriately to avoid missing data during feature extraction.
+All data should be in the same format to avoid missing data during feature extraction.
+With basic descriptive analysis I can’t deduce the genre of the book, I could make speculations but it could be wrong.
+
+
+
+
+
+Bibliography
+•	https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+•	https://stackoverflow.com/questions/1454913/regular-expression-to-find-a-string-included-between-two-characters-while-exclud
+•	https://towardsdatascience.com/regular-expressions-f3ee2213b085
+
